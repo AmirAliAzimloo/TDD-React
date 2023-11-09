@@ -4,35 +4,42 @@ import Login from "./Login"
 test("username input should be rendered",()=>{
     render(<Login/>)
 
-    const userInputEl = screen.getByPlaceholderText(/username/i)
-    expect(userInputEl).toBeInTheDocument()
+    const usernameEl = screen.getByPlaceholderText(/username/i)
+    expect(usernameEl).toBeInTheDocument()
 })
 
 test("password input should be rendered",()=>{
     render(<Login/>)
 
-    const userInputEl = screen.getByPlaceholderText(/password/i)
-    expect(userInputEl).toBeInTheDocument()
+    const passwordEl = screen.getByPlaceholderText(/password/i)
+    expect(passwordEl).toBeInTheDocument()
 })
 
-test("button input should be rendered",()=>{
+test("button should be rendered",()=>{
     render(<Login/>)
 
-    const userInputEl = screen.getByRole(/button/i)
-    expect(userInputEl).toBeInTheDocument() 
+    const buttonEl = screen.getByRole(/button/i)
+    expect(buttonEl).toBeInTheDocument() 
 })
 
 test("username input should be empty",()=>{
     render(<Login/>)
 
-    const userInputEl = screen.getByPlaceholderText(/username/i)
-    expect(userInputEl.value).toBe("")
+    const usernameEl = screen.getByPlaceholderText(/username/i)
+    expect(usernameEl.value).toBe("")
 })
 
 test("password input should be empty",()=>{
     render(<Login/>)
 
-    const userInputEl = screen.getByPlaceholderText(/password/i)
-    expect(userInputEl.value).toBe("")
+    const passwordEl = screen.getByPlaceholderText(/password/i)
+    expect(passwordEl.value).toBe("")
 })
 
+
+test("button should be disabled",()=>{
+    render(<Login/>)
+
+    const buttonEl = screen.getByRole(/button/i)
+    expect(buttonEl).toBeDisabled() 
+})
