@@ -14,3 +14,16 @@ test("renders learn react link", () => {
   // expect(listItems.length).toBe(3)
   expect(listItems.length).toEqual(3)
 });
+
+test("renders title", () => {
+  render(<App />);
+  const title = screen.getByTestId("mytestid")
+  expect(title).toBeInTheDocument();
+});
+
+
+test("sum should be 6", () => {
+  render(<App />);
+  const sum = screen.getByTitle("sum")
+  expect(sum.textContent).toBe("6")
+});
