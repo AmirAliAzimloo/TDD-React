@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const a = 1;
+  const b = 2;
   return (
     <div className="App">
       <header className="App-header">
@@ -16,8 +18,15 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          first test
+          learn react
         </a>
+        <ul>
+          <li>li1</li>
+          <li>li2</li>
+          <li>li3</li>
+        </ul>
+        <h1 data-testid="mytestid" >hello</h1>
+        <span title='sum' >{a+b}</span>
       </header>
     </div>
   );
