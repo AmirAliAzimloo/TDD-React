@@ -9,7 +9,7 @@ const Login = () => {
   const [user, setUser] = useState({});
 
   const handleClick = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     setLoading(true);
     try {
       const { data } = await axios.get(
