@@ -1,6 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import Login from "./Login"
 
+jest.mock("axios",()=>({
+    __esModule:true,
+    default:{
+        get:()=>({
+            data:{id:1,name:"amir ali"}
+        })
+}
+}))
+
 test("username input should be rendered",()=>{ 
     render(<Login/>)
 
@@ -41,6 +50,7 @@ test("button should be disabled",()=>{
     render(<Login/>)
 
     const buttonEl = screen.getByRole("button")
+    
     expect(buttonEl).toBeDisabled() 
 })
 
@@ -104,11 +114,12 @@ test("loading should be rendered when click", () => {
     const usernameInputEl = screen.getByPlaceholderText(/username/i);
     const passwordInputEl = screen.getByPlaceholderText(/password/i);
   
-    const testValue = "test";
+    const testValue = "test"; 
   
     fireEvent.change(usernameInputEl, { target: { value: testValue } });
     fireEvent.change(passwordInputEl, { target: { value: testValue } });
     fireEvent.click(buttonEl);
   
     expect(buttonEl).toHaveTextContent(/please wait/i);
+
   });
