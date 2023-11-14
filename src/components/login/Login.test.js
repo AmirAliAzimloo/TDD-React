@@ -138,6 +138,7 @@ test("loading should not be rendered after fetching", async () => {
     fireEvent.click(buttonEl);
   
     await waitFor(()=>{
+        
         expect(buttonEl).not.toHaveTextContent(/please wait/i);
     })
 
